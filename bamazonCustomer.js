@@ -1,3 +1,10 @@
+// activates .env file
+require("dotenv").config()
+// activates the keys stored in keys.js
+let pass = require("./pass.js")
+
+let sqlPass = pass.sql
+
 const inquirer = require(`inquirer`)
 const { createConnection } = require(`mysql2`)
 
@@ -5,7 +12,7 @@ const db = createConnection({
   host: 'localhost',
   port: 3306,
   user: 'root',
-  password: 'Dg76752710!',
+  password: `${sqlPass.password}`,
   database: 'Bamazon'
 })
 
