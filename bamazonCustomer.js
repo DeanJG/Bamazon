@@ -20,5 +20,9 @@ const db = createConnection({
 db.connect(e => {
   if (e) throw e
   // run the start function after the connection is made to prompt the user
-  start()
+  // start()
+  db.query('SELECT * FROM auctions', function (e, results) {
+    if (e) throw e
+    console.log(results)
+  })
 })
